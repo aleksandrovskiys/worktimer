@@ -17,7 +17,7 @@ func getTimeRepresentation(remaining time.Duration) string {
 	remainingMinutes := math.Floor((remaining.Seconds() - remainingHours*3600) / 60)
 	remainingSeconds := math.Ceil(remaining.Seconds() - (remaining.Seconds() - remainingHours*3600) + (remaining.Seconds() - remainingMinutes*60))
 	t := time.Date(1, 1, 1, int(remainingHours), int(remainingMinutes), int(remainingSeconds), 0, time.Now().Location())
-	s := fmt.Sprintf("%s", t.Format(time.TimeOnly))
+	s := t.Format(time.TimeOnly)
 	return s
 }
 
